@@ -16,6 +16,13 @@
 
     <header class="site-header">
       <div class="wrap">
+        <!-- The same navigation appears on all three pages. -->
+        <nav class="site-nav" aria-label="Pages">
+          <a href="index.html" aria-current="page">Explore</a>
+          <a href="build.html">Make it yours</a>
+          <a href="playground.html">Design playground</a>
+        </nav>
+
         <p class="eyebrow">Workshop starter project</p>
         <h1>Library Innovation Explorer</h1>
         <p class="lede">
@@ -27,6 +34,20 @@
     </header>
 
     <main class="wrap">
+      <!--
+        Points at the guide, and makes the key idea hard to miss: the subject of
+        this site is placeholder content, not a fixed feature of the project.
+      -->
+      <aside class="home-callout" aria-label="Make this project your own">
+        <p>
+          <strong>This does not have to be about libraries.</strong>
+          The cards below are example content living in one file. Swap them for
+          your own topic, add your branding, redesign the whole thing — there is
+          a library of prompts to get you started.
+        </p>
+        <a class="button-primary" href="build.html">Make it yours</a>
+      </aside>
+
       <!-- The randomizer. The challenge text is written by script.js. -->
       <section class="challenge" aria-labelledby="challenge-heading">
         <h2 id="challenge-heading">Need a place to start?</h2>

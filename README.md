@@ -1,7 +1,8 @@
 # Library Innovation Explorer
 
-A small starter website about areas of library work — and a starting point for
-a hands-on workshop on AI-assisted coding.
+A small starter website for a hands-on workshop on AI-assisted coding. It ships
+with content about areas of library work, but the content is a placeholder —
+the project is a template for whatever topic you want to explore.
 
 ---
 
@@ -24,38 +25,81 @@ test the result, and iterate.**
 That loop — describe, inspect, test, iterate — is the actual skill this workshop
 is about. The website is just something realistic to practice on.
 
+### The topic is not the point
+
+The starter site describes areas of library work. **That is placeholder
+content.** None of the code knows what the cards are about — it reads a list
+from `data.js` and draws whatever it finds.
+
+So the subject is yours to pick. The same cards, filters, and challenge button
+work just as well for the services one department offers, a set of museum
+objects, the stages of a grant process, the systems your team maintains, a
+reading list, or something nobody has built a page for yet. Changing the topic
+is one of the most satisfying things you can do in a short session, and it is
+mostly a matter of editing one file.
+
+The site says this to you as well. Open the **Make it yours** page in the
+running site for a library of prompts you can copy, including ones for swapping
+the topic and applying your own branding.
+
 ---
 
 ## 2. What is in the project
 
-Six files. Four of them matter for the exercise.
+Three pages, and a few files behind them.
 
-**`index.html`**
-The structure of the webpage. It sets out the header, the challenge button, the
-place where the cards appear, and the footer. It does not contain the card text
-itself.
+### The pages
+
+**`index.html` — Explore**
+The home page. Sets out the header, the challenge button, the place where the
+cards appear, and the footer. It does not contain the card text itself.
+
+**`build.html` — Make it yours**
+A guide, inside the site, that explains the project is a template and offers a
+library of prompts you can copy. Read this one early.
+
+**`playground.html` — Design playground**
+A scratch page holding a few plain sample pieces — headings, buttons, a card,
+tags, an input. Somewhere to try design ideas without worrying about breaking
+the home page. Redesign it or delete it.
+
+### The files behind them
 
 **`styles.css`**
-How the site looks: colors, fonts, spacing, and how the layout rearranges itself
-on smaller screens. The colors are defined once at the top of the file, so
-changing a few lines there changes the whole look.
+How everything looks: colors, fonts, spacing, and how the layout rearranges
+itself on smaller screens. The colors are defined once at the top of the file,
+so changing a few lines there changes the look of all three pages.
 
 **`data.js`**
-The content: the list of library work areas and the list of challenge prompts.
-If you want to change what the page *says*, this is usually the file to edit.
+The content of the home page: the work areas and the challenge prompts. If you
+want to change what the site *says*, this is usually the file to edit.
 
 **`script.js`**
-The behavior: it reads `data.js`, draws the cards onto the page, runs the
+The behavior of the home page: it reads `data.js`, draws the cards, runs the
 category filters, and picks a random challenge when the button is clicked.
+
+**`prompts.js`**
+The prompt library shown on the Make it yours page. Add your own as you find
+prompts that work.
+
+**`build.js`**
+Draws that prompt library and handles the copy buttons.
 
 **`README.md`** is this file. **`LICENSE`** is the MIT license, which says
 anyone may reuse this.
+
+Each page loads only the JavaScript it needs, which is why there is more than
+one script file.
 
 ### Running it
 
 You can open `index.html` directly in a web browser by double-clicking it. Most
 AI coding tools also offer a preview or a "run" option, which serves the folder
 as a small local website. Either works.
+
+One small difference: the copy buttons on the Make it yours page need a real
+web address to reach your clipboard. Opened straight from a file, they fall
+back to selecting the prompt so you can copy it with `Ctrl`/`Cmd` + `C`.
 
 ---
 
@@ -172,12 +216,18 @@ project, which makes the agent's later changes much easier to judge.
 Read the answer. If something in it sounds wrong, ask about it. That is a
 useful habit.
 
+Then open the site itself and read the **Make it yours** page. It holds a
+copy-pasteable prompt library grouped by what you are trying to do — change the
+topic, add branding, adjust the design, add a feature, check the work. The
+examples below are a taste of it; that page has the full set.
+
 ---
 
 ## 6. Make your first change
 
-Here are four example prompts, roughly in order of ambition. Use them as
-written, or change them — inventing your own is the point.
+Here are some example prompts, roughly in order of ambition. Use them as
+written, or change them — inventing your own is the point. The **Make it yours**
+page in the site has many more.
 
 Notice what these prompts have in common: they say what to do, and they also say
 what *not* to do. Setting limits ("do not redesign the application", "do not add
@@ -192,6 +242,45 @@ Follow the same data structure and visual style as the existing cards.
 
 Do not redesign the application.
 ```
+
+### Make it about your own topic
+
+Probably the most satisfying change available, and easier than it sounds.
+
+```text
+This site is currently about areas of library work.
+Change it so it is about <YOUR TOPIC> instead.
+
+Replace the entries in data.js with six items that fit the new topic.
+Give each one a title, a category, a short plain-language description,
+and two or three example activities.
+
+Update the page title, the headings, and the introduction text in
+index.html so they match. Rewrite the challenge prompts in data.js
+so they make sense for the new topic too.
+
+Keep the same file structure, the same filtering behavior, and the
+same visual style. Do not add any libraries.
+```
+
+### Add your branding
+
+```text
+Apply my organization's brand colors to this site.
+
+Main color: <#HEX>
+Accent or secondary color: <#HEX>
+
+Change the CSS custom properties at the top of styles.css rather than
+scattering new colors through the file.
+
+Then check that every piece of text still has a contrast ratio of at
+least 4.5 to 1 against its background, and tell me about any
+combination that falls below that.
+```
+
+Keep branding assets local — no web fonts and no image URLs — so the project
+still works with no internet connection.
 
 ### Add a feature
 
@@ -316,10 +405,13 @@ Ideas, roughly by difficulty. Pick something you actually want to see.
 - Add another library work area
 - Add more innovation challenges
 - Change the visual theme (colors, fonts, spacing)
-- Add institutional branding
+- Add institutional branding — your colors, your name, your logo
+- Rewrite the content for a different audience
 - Improve the mobile layout
 - Add icons without introducing a framework
 - Add another filter category
+- Redesign the Design playground page however you like
+- Add your own prompts to `prompts.js`
 
 ### Intermediate
 
@@ -334,17 +426,22 @@ Ideas, roughly by difficulty. Pick something you actually want to see.
 
 ### More ambitious
 
+- Repoint the whole site at a different topic of your own
 - Allow users to add their own cards through the interface
 - Import data from a local JSON file
 - Add a small dashboard or visualization
 - Create a guided workflow
-- Turn one library area into a more substantial interactive prototype
+- Turn one area into a more substantial interactive prototype
+- Add a page of your own alongside the three that exist
 
 And the best idea is probably not on this list. **The most interesting
 modification may be something that only makes sense because you understand how
 your library works** — a step in your own workflow, a question you answer over
 and over, a form nobody likes filling out. Describe that, and see how far the
 agent gets.
+
+That is the real invitation here. The cards about library work are scaffolding.
+What you replace them with is the point.
 
 ---
 
@@ -381,7 +478,7 @@ understand, test, and improve.**
 
 This repository is intentionally:
 
-- **small** — six files, a few hundred lines
+- **small** — three pages, a handful of files, a few hundred lines
 - **static** — no server, no database, no accounts, no API keys
 - **dependency-free** — nothing to install, nothing to update, nothing to break
   between the room and the wifi
@@ -395,8 +492,20 @@ testing it, and iterating — rather than mastering a particular programming
 language or framework. A starter that already did everything would leave
 nothing to practice on.
 
+Note that the guidance is deliberately *inside* the artifact, not only in this
+README. The **Make it yours** page tells participants the topic is a
+placeholder and hands them prompts; the **Design playground** gives them a
+low-stakes surface for design experiments. Participants who never open the
+README still meet the invitation to customize, because the site they are editing
+makes it. Both pages are fair game to delete.
+
 A few extension points are marked in the code with `Workshop extension idea`
 comments, but participants should feel free to ignore them entirely.
+
+**On the library content:** if the room is not all library staff, or you would
+rather they practice on their own subject matter from the first minute, the
+topic-swap prompt on the Make it yours page is a good opening exercise. It
+touches one data file and produces a visibly different site in a few minutes.
 
 ---
 

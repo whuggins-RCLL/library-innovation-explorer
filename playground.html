@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design playground — Library Innovation Explorer</title>
+    <meta
+      name="description"
+      content="A scratch page for practicing design changes without touching the main site."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#samples">Skip to the sample pieces</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <nav class="site-nav" aria-label="Pages">
+          <a href="index.html">Explore</a>
+          <a href="build.html">Make it yours</a>
+          <a href="playground.html" aria-current="page">Design playground</a>
+        </nav>
+
+        <p class="eyebrow">Scratch page</p>
+        <h1>Design playground</h1>
+        <p class="lede">
+          A page with nothing important on it. Redesign it, break it, or delete
+          it — the rest of the site does not depend on anything here.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="callout" aria-labelledby="using-heading">
+        <h2 id="using-heading">What this page is for</h2>
+        <p>
+          Design changes are easier to judge when you are not also worried about
+          breaking something. This page holds a few plain, unremarkable pieces —
+          headings, buttons, a card, some tags, an input — so you have somewhere
+          to try ideas out.
+        </p>
+        <p>
+          One thing worth knowing: this page shares
+          <code>styles.css</code> with the rest of the site. So if you change a
+          <em>shared</em> style here, such as a color variable or the look of
+          every button, the home page changes too. That is often exactly what
+          you want. If you would rather keep an experiment contained, ask your
+          agent to scope the new styles to this page only.
+        </p>
+      </section>
+
+      <section id="samples" aria-labelledby="samples-heading">
+        <h2 id="samples-heading">Sample pieces</h2>
+
+        <div class="sample-set">
+          <article class="sample">
+            <h3>Type scale</h3>
+            <h4 class="sample-h">A heading</h4>
+            <p>
+              A paragraph of ordinary body text, long enough to show how line
+              length and line height feel once there is more than one line of it
+              on the screen.
+            </p>
+            <p class="sample-small">Smaller supporting text.</p>
+          </article>
+
+          <article class="sample">
+            <h3>Buttons</h3>
+            <p class="sample-row">
+              <button type="button" class="button-primary">Primary action</button>
+              <button type="button" class="filter-button">Secondary</button>
+            </p>
+            <p class="sample-small">
+              Both are real buttons, so both already work with a keyboard.
+            </p>
+          </article>
+
+          <article class="sample">
+            <h3>Tags</h3>
+            <p class="sample-row">
+              <span class="card-tag">One</span>
+              <span class="card-tag">Another</span>
+              <span class="card-tag">A third</span>
+            </p>
+          </article>
+
+          <article class="sample">
+            <h3>A small card</h3>
+            <div class="sample-card">
+              <span class="card-tag">Category</span>
+              <h4 class="sample-h">Card title</h4>
+              <p>Two or three lines of description sit here.</p>
+            </div>
+          </article>
+
+          <article class="sample">
+            <h3>A text input</h3>
+            <!-- Labelled properly, so it is usable with a screen reader. -->
+            <label class="sample-label" for="sample-input">Label for the input</label>
+            <input
+              class="sample-input"
+              id="sample-input"
+              type="text"
+              placeholder="Type something"
+            />
+            <p class="sample-small">
+              Not wired up to anything. It is here to be styled.
+            </p>
+          </article>
+
+          <article class="sample">
+            <h3>A short list</h3>
+            <ul class="card-activities">
+              <li>First item</li>
+              <li>Second item</li>
+              <li>Third item</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="try-heading">
+        <h2 id="try-heading">Things to try here</h2>
+        <ul class="idea-list">
+          <li>Change the color variables at the top of <code>styles.css</code>.</li>
+          <li>Make the type scale more dramatic — bigger headings, smaller body text.</li>
+          <li>Give the buttons a different shape, weight, or hover behavior.</li>
+          <li>Lay the sample pieces out in a grid instead of a stack.</li>
+          <li>Try a version with much more white space, then one with much less.</li>
+          <li>Rebuild this page from scratch in whatever way you prefer.</li>
+        </ul>
+        <p class="section-note">
+          The <a href="build.html">prompt library</a> has design prompts you can
+          copy, including one aimed at this page.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          <strong>This is a workshop starter, not a finished product.</strong>
+          This page in particular is meant to be overwritten.
+        </p>
+        <p class="footer-small">
+          Static HTML, CSS, and JavaScript. No frameworks, no build step.
+        </p>
+      </div>
+    </footer>
+
+    <!-- No JavaScript on this page. Nothing here needs it. -->
+  </body>
+</html>
