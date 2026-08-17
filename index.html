@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Innovation Explorer</title>
+    <meta
+      name="description"
+      content="A small starter project for exploring areas of library work. Built for an AI-assisted coding workshop."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Skip link: helps keyboard users jump straight to the cards. -->
+    <a class="skip-link" href="#areas">Skip to library work areas</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <p class="eyebrow">Workshop starter project</p>
+        <h1>Library Innovation Explorer</h1>
+        <p class="lede">
+          Libraries are full of workflows, services, and systems that can be
+          improved. This starter project is intentionally simple. Fork it,
+          change it, and make it your own.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- The randomizer. The challenge text is written by script.js. -->
+      <section class="challenge" aria-labelledby="challenge-heading">
+        <h2 id="challenge-heading">Need a place to start?</h2>
+        <button type="button" id="challenge-button" class="button-primary">
+          Give me an innovation challenge
+        </button>
+        <!--
+          aria-live means screen readers announce the new challenge when it
+          appears, without the user having to go looking for it.
+        -->
+        <p id="challenge-output" class="challenge-output" aria-live="polite"></p>
+      </section>
+
+      <section id="areas" aria-labelledby="areas-heading">
+        <h2 id="areas-heading">Areas of library work</h2>
+        <p class="section-note">
+          Six broad areas, described in plain language. Filter them by category,
+          or scroll through all of them.
+        </p>
+
+        <!-- Filter buttons are created by script.js from the data file. -->
+        <div
+          class="filters"
+          id="filters"
+          role="group"
+          aria-label="Filter areas by category"
+        ></div>
+
+        <!-- Cards are created by script.js. -->
+        <ul class="card-grid" id="card-grid"></ul>
+
+        <p class="empty-message" id="empty-message" hidden>
+          No areas match that category yet.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          <strong>This is a workshop starter, not a finished product.</strong>
+          It is deliberately incomplete so there is room for you to build on it.
+        </p>
+        <p class="footer-small">
+          Static HTML, CSS, and JavaScript. No frameworks, no build step.
+        </p>
+      </div>
+    </footer>
+
+    <!-- data.js must load before script.js, because script.js uses its data. -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

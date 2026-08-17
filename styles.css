@@ -1,0 +1,325 @@
+/*
+  styles.css
+  ----------
+  How the site looks: colors, spacing, type, and layout.
+
+  Colors are defined once as variables at the top. Changing the handful of
+  values in :root is the quickest way to give this site a different look.
+*/
+
+:root {
+  /* Colors */
+  --ink: #1c2733; /* main text */
+  --ink-soft: #4a5b6d; /* secondary text */
+  --accent: #1f5f8b; /* links, buttons, focus */
+  --accent-dark: #164a6d;
+  --surface: #ffffff; /* cards */
+  --page: #f5f7f9; /* page background */
+  --line: #d9e0e7; /* borders */
+  --tag-bg: #e8f0f6;
+
+  /* Spacing and shape */
+  --radius: 10px;
+  --gap: 1.5rem;
+  --wrap-width: 62rem;
+}
+
+/* A small reset so the page starts from a predictable place. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* System fonts: no external font files to download. */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background-color: var(--page);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+/* Keeps content centered and readable on wide screens. */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Focus and skip link (keyboard accessibility) ---------- */
+
+/* A visible outline on every focusable element, so keyboard users can see
+   where they are. Removing this makes the site much harder to use. */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--surface);
+  color: var(--accent-dark);
+  padding: 0.75rem 1rem;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  padding: 3rem 0 2.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.site-header h1 {
+  font-size: 2.25rem;
+}
+
+.lede {
+  max-width: 44rem;
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Main sections ---------- */
+
+main {
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+main section + section {
+  margin-top: 3rem;
+}
+
+.section-note {
+  color: var(--ink-soft);
+  max-width: 44rem;
+}
+
+/* ---------- Challenge box ---------- */
+
+.challenge {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.challenge h2 {
+  font-size: 1.25rem;
+}
+
+.button-primary {
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.7rem 1.15rem;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.challenge-output {
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+/* The challenge text is empty until the button is pressed, so only show the
+   left rule once there is something to read. */
+.challenge-output:not(:empty) {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+}
+
+.challenge-area {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Filters ---------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.filter-button {
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--accent-dark);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  border-color: var(--accent);
+}
+
+/* aria-pressed="true" marks the active filter for screen readers, and we
+   reuse it here so the styling and the accessibility state can't disagree. */
+.filter-button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Cards ---------- */
+
+.card-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--gap);
+  /* One column on narrow screens; more columns as space allows. */
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The filter hides cards by setting the `hidden` attribute in script.js.
+   Because the rule above sets `display: flex`, it would otherwise override the
+   browser's built-in `display: none` for hidden elements and the cards would
+   stay on screen. This line puts that back. */
+.card[hidden] {
+  display: none;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+}
+
+.card-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: var(--tag-bg);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.card-description {
+  color: var(--ink-soft);
+}
+
+.card-activities-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0.5rem 0 0.4rem;
+}
+
+.card-activities {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--ink);
+}
+
+.card-activities li {
+  margin-bottom: 0.3rem;
+}
+
+.empty-message {
+  color: var(--ink-soft);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  padding: 2rem 0;
+}
+
+.footer-small {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 40rem) {
+  .site-header {
+    padding: 2rem 0 1.75rem;
+  }
+
+  .site-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .lede {
+    font-size: 1rem;
+  }
+
+  .challenge {
+    padding: 1.25rem;
+  }
+
+  /* Full-width button is easier to tap on a phone. */
+  .button-primary {
+    width: 100%;
+  }
+}
+
+/* Workshop extension idea:
+   A participant could add a dark theme by redefining the variables in :root
+   inside a @media (prefers-color-scheme: dark) block, or behind a toggle. */
