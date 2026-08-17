@@ -67,13 +67,17 @@ original repository.
 
 1. Sign into GitHub.
 2. Click **Fork** near the top of the repository page.
-3. Keep the default repository name unless you want to rename it.
+3. Keep the default repository name. (You can rename it if you like — nothing
+   in the project depends on what it is called.)
 4. Click **Create fork**.
 5. Confirm that you are now viewing a repository under **your own** GitHub
    account. The name at the top of the page should start with your username.
 
 That last step matters. Everything from here on assumes you are working in your
 fork.
+
+You do not need to rename anything, move anything, or set anything up. A fresh
+fork runs as-is.
 
 ---
 
@@ -120,12 +124,15 @@ repository's URL, then run:
 git clone YOUR-FORK-URL
 ```
 
-Then move into the new folder. The folder is named after your fork, so if you
-kept the default name:
+Cloning creates a folder named after your fork, whatever that name is. Move
+into it:
 
 ```bash
-cd vibe-code-starter-repo
+cd NAME-OF-YOUR-REPOSITORY
 ```
+
+If you are not sure of the name, run `ls` to see the folder that was just
+created.
 
 Finally, open that folder in your AI coding tool.
 
