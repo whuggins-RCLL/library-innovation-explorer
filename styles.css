@@ -139,14 +139,18 @@ main section + section {
   font-size: 1.25rem;
 }
 
+/* Used on real <button> elements and on links that should look like buttons,
+   so it has to cover both cases. */
 .button-primary {
   font: inherit;
   font-weight: 600;
+  display: inline-block;
   color: #fff;
   background: var(--accent);
   border: 1px solid var(--accent);
   border-radius: var(--radius);
   padding: 0.7rem 1.15rem;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -217,8 +221,11 @@ main section + section {
   padding: 0;
   display: grid;
   gap: var(--gap);
-  /* One column on narrow screens; more columns as space allows. */
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  /* One column on narrow screens; more columns as space allows.
+     The min() matters: a plain minmax(17rem, 1fr) sets a hard 17rem floor, so
+     on a screen narrower than that the cards would push the page sideways.
+     min(17rem, 100%) lets a column shrink to fit when it has to. */
+  grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr));
 }
 
 .card {
@@ -281,6 +288,259 @@ main section + section {
   color: var(--ink-soft);
 }
 
+/* ---------- Navigation between pages ---------- */
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.site-nav a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* aria-current marks the page you are on, so the styling and the information
+   a screen reader gets stay in agreement. */
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- Callout boxes ---------- */
+
+.callout {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+
+.callout h2 {
+  font-size: 1.25rem;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout-punch {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* A smaller callout used on the home page to point at the guide. */
+.home-callout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--tag-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+}
+
+.home-callout p {
+  margin: 0;
+  max-width: 42rem;
+}
+
+.home-callout .button-primary {
+  white-space: nowrap;
+}
+
+/* ---------- Numbered steps and idea lists ---------- */
+
+.steps,
+.idea-list {
+  max-width: 44rem;
+  padding-left: 1.3rem;
+}
+
+.steps li,
+.idea-list li {
+  margin-bottom: 0.6rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+  font-size: 0.9em;
+  background: var(--tag-bg);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+}
+
+/* ---------- Prompt library (build.html) ---------- */
+
+.prompt-group {
+  margin-top: 2.5rem;
+}
+
+.prompt-group h3 {
+  font-size: 1.25rem;
+}
+
+.prompt-group-note {
+  color: var(--ink-soft);
+  max-width: 44rem;
+}
+
+.prompt-list {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--gap);
+  /* See the note on .card-grid for why this uses min(). */
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+}
+
+.prompt {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.prompt-title {
+  font-size: 1.02rem;
+  margin: 0 0 0.75rem;
+}
+
+/* The prompt text itself. `white-space: pre-wrap` keeps the line breaks that
+   were written in prompts.js but still wraps long lines on a narrow screen. */
+.prompt-text {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  /* Long unbroken strings (a pasted URL, say) must not widen the page. */
+  overflow-wrap: break-word;
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 0 0 0.9rem;
+  padding: 0.9rem;
+  /* Keeps a very long prompt from making the card enormous. */
+  max-height: 18rem;
+  overflow-y: auto;
+}
+
+.copy-button {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  align-self: flex-start;
+  color: var(--accent-dark);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background: var(--tag-bg);
+}
+
+.copy-button.is-copied {
+  color: #fff;
+  background: var(--accent);
+}
+
+.prompt-why {
+  margin: 0.9rem 0 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Design playground samples ---------- */
+
+.sample-set {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
+  margin-top: 1.25rem;
+}
+
+.sample {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+/* The <h3> in each sample block labels the sample rather than being part of
+   it, so it is deliberately small and quiet. */
+.sample > h3 {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+.sample-h {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.sample-small {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.sample-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sample-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.sample-card .card-tag {
+  margin-bottom: 0.6rem;
+}
+
+.sample-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.sample-input {
+  font: inherit;
+  width: 100%;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
@@ -317,6 +577,23 @@ main section + section {
   /* Full-width button is easier to tap on a phone. */
   .button-primary {
     width: 100%;
+  }
+
+  .callout,
+  .prompt,
+  .sample {
+    padding: 1.25rem;
+  }
+
+  .home-callout {
+    padding: 1.25rem;
+  }
+
+  /* On a phone the callout's button should sit under the text, full width,
+     rather than being squeezed beside it. */
+  .home-callout .button-primary {
+    width: 100%;
+    text-align: center;
   }
 }
 

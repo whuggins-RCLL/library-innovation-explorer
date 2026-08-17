@@ -14,6 +14,10 @@
 
 // Each object below becomes one card on the page.
 // Keep the same keys (id, title, category, description, activities) for new entries.
+//
+// These six areas are EXAMPLE CONTENT. Nothing in the code knows they are about
+// libraries — it just draws whatever list it finds here. Replace them with your
+// own topic and the site keeps working. See build.html for prompts that do this.
 const libraryAreas = [
   {
     id: "access-circulation",

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make it yours — Library Innovation Explorer</title>
+    <meta
+      name="description"
+      content="A library of prompts for reshaping this starter project into something of your own."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#library">Skip to the prompt library</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <!-- The same navigation appears on all three pages. -->
+        <nav class="site-nav" aria-label="Pages">
+          <a href="index.html">Explore</a>
+          <a href="build.html" aria-current="page">Make it yours</a>
+          <a href="playground.html">Design playground</a>
+        </nav>
+
+        <p class="eyebrow">Workshop guide</p>
+        <h1>Make it yours</h1>
+        <p class="lede">
+          This page is part of the starter, and it is about the starter. It
+          exists to talk you out of treating this project as a finished site
+          about libraries.
+        </p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- The core meta framing: the topic is a placeholder, not the point. -->
+      <section class="callout" aria-labelledby="template-heading">
+        <h2 id="template-heading">This is a template, not a subject</h2>
+        <p>
+          The cards on the home page describe areas of library work. That is
+          example content. None of the code knows or cares what the cards are
+          about — it reads a list from <code>data.js</code> and draws whatever
+          it finds there.
+        </p>
+        <p>
+          So the topic is yours to choose. The same six cards, the same filters,
+          and the same challenge button work just as well for a collection of
+          museum objects, the services one department offers, the stages of a
+          grant process, a reading list, the systems your team maintains, or
+          something nobody has built a page for yet.
+        </p>
+        <p class="callout-punch">
+          If the site still says "library" everywhere by the end of the
+          workshop, you have probably not pushed it far enough.
+        </p>
+      </section>
+
+      <section aria-labelledby="how-heading">
+        <h2 id="how-heading">How to use the prompts below</h2>
+        <ol class="steps">
+          <li>
+            <strong>Pick one small change.</strong> Not three. One change is
+            something you can actually check.
+          </li>
+          <li>
+            <strong>Copy a prompt and fill in the blanks.</strong> Anything in
+            <code>&lt;ANGLE BRACKETS&gt;</code> is yours to replace.
+          </li>
+          <li>
+            <strong>Read what the agent says it did.</strong> Then look at the
+            page yourself. These are not the same thing.
+          </li>
+          <li>
+            <strong>Save it, then pick the next one.</strong> Small commits are
+            easy to undo. Large ones are not.
+          </li>
+        </ol>
+        <p class="section-note">
+          Notice what almost every prompt here has in common: it says what to
+          do, <em>and</em> it says what to leave alone. Setting limits is most of
+          the skill.
+        </p>
+      </section>
+
+      <section id="library" aria-labelledby="library-heading">
+        <h2 id="library-heading">Prompt library</h2>
+        <p class="section-note">
+          Grouped roughly in the order you might need them. They live in
+          <code>prompts.js</code>, so you can add your own.
+        </p>
+
+        <!-- Groups and prompt cards are built by build.js. -->
+        <div id="prompt-library"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          <strong>This is a workshop starter, not a finished product.</strong>
+          Change anything. Delete anything. Including this page.
+        </p>
+        <p class="footer-small">
+          Static HTML, CSS, and JavaScript. No frameworks, no build step.
+        </p>
+      </div>
+    </footer>
+
+    <script src="prompts.js"></script>
+    <script src="build.js"></script>
+  </body>
+</html>
